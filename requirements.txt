@@ -18,7 +18,8 @@ reportlab==4.2.2
 tqdm==4.66.5
 regex==2024.7.24
 
-# Optional (for notebooks)
+# Notebook / Dev
 jupyterlab==4.2.5
 notebook==7.2.1
 ipython==8.27.0
+ipywidgets==8.1.3
