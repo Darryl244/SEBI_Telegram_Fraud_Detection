@@ -1,98 +1,115 @@
-# 📊 SEBI Telegram Risk Analysis
+# 📊 SEBI Telegram Risk Monitoring Dashboard
 
-## 📌 Overview  
-This project analyzes **Telegram groups related to stock market trading/investment calls**, focusing on identifying **high-risk and potentially fraudulent activities**.  
 
-It combines:  
-- 📥 **Scraped Telegram messages**  
-- 🏛 **SEBI registries** (Investment Advisors & Research Analysts)  
-- ⚡ **Text preprocessing, clustering & risk classification**  
-- 📊 **Dashboards & interactive visualizations**  
+## 🌟 Overview
+This project analyzes **Telegram groups** to detect and monitor:
+- 🚨 **High-risk financial messages**
+- 🛡️ **Unregistered investment advisors & research analysts**
+- 📑 **Suspicious trading recommendations**
+- 📈 **Pump-and-dump patterns & fake promotions**
 
-The pipeline helps detect **unregistered advisors, scammy promotions, and risky trading schemes** — aiding **SEBI surveillance & investor protection**.  
+The system combines:
+- 📥 Scraping Telegram messages  
+- 🧹 Preprocessing & text normalization  
+- 🔍 Clustering & risk scoring  
+- 🗂️ SEBI registry verification (IA + RA)  
+- 📊 Interactive dashboards (Streamlit)  
+- 🚨 Automated alerts feed  
+
+The goal: assist **SEBI investigators** in monitoring **financial scams, unverified promotions, and risky groups**.
+
+---
+## ✨ Key Features
+
+- 📥 **Data Collection**  
+  Scraped raw Telegram messages from multiple groups.
+
+- 🧹 **Preprocessing**  
+  Cleaned & normalized text (deduplication, regex cleaning, SEBI registry cross-checks).
+
+- 🔗 **Entity Matching**  
+  Linked Telegram usernames/messages with SEBI-registered Investment Advisors (IA) and Research Analysts (RA).
+
+- 🧩 **Clustering**  
+  Grouped messages into canonical templates for detecting scam patterns.
+
+- ⚖️ **Risk Scoring**  
+  Applied heuristics & labels (`high`, `medium`, `low`) to rank suspicious messages.
+
+- 📊 **Interactive Dashboard**  
+  Streamlit-based app to explore clusters, candidates, and alerts.
+
+- 🌐 **Network Graphs**  
+  Candidate ↔ Cluster ↔ Group visualizations for scam network mapping.
+
+- 📑 **Automated Reports**  
+  PDF/CSV exports and alerts feed for monitoring recent high-risk signals.
+---
+
+## 🔄 Workflow
+
+```mermaid
+flowchart TD
+    A[Preprocessing & Cleaning] --> B[Telegram Scraper]
+    B --> C[Registry Matching IA-RA]
+    C --> D[Clustering & Template Detection]
+    D --> E[Risk Scoring & Labeling]
+    E --> F[Dashboard & Exploration]
+    E --> G[Alerts Feed]
+    F --> H[Network Visualization]
+
+````
+## ⚙️ Installation
+
+### 🔹 Create Virual Environment (I used Conda)
+```bash
+conda env create -f environment.yml
+conda activate sebi_project
+````
+
+### 🔹 Using Pip
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
 
-## ⚙️ Installation  
-Create & activate virtual environment:
+### 3️⃣ Run Dashboard
 
-bash
-Copy code
-conda create -n sebi_env python=3.10 -y
-conda activate sebi_env
-Install dependencies:
-
-bash
-Copy code
-pip install -r requirements.txt
-
-Pipeline Workflow
-flowchart TD
-    A[Preprocessing & Cleaning] --> B[Raw Telegram Data]
-    B --> C[Candidate Matching with SEBI Registry]
-    C --> D[Message Clustering & Templates]
-    D --> E[Risk Labeling: High / Medium / Low]
-    E --> F[Dashboard + Alerts + Reports]
-
-Steps:
-Registry Cleaning → normalize SEBI IA/RA registries
-
-Preprocessing → clean Telegram messages (normalize, remove noise).
-
-Candidate Matching → check Telegram users against SEBI records.
-
-Clustering → group similar message templates (BUY/SELL calls, promos).
-
-Risk Labeling → assign risk scores & labels.
-
-Visualization & Reporting →  PDF reports, network graph
-
-🚨 Alerts
-
-Run the alerts script:
-
-python alerts.py
-
-
-Generates:
-
-data/reports/alerts_feed.csv → latest high-risk messages
-
-Integrated in dashboard under Alerts Feed.
-
-📊 Dashboard
-
-Run the interactive dashboard:
-
+```bash
 streamlit run app.py
+```
 
-Features:
+🔎 **Dashboard Views**
 
-Overview → metrics, risk distribution, top clusters
+* **Overview** → Risk distribution, timeline, top clusters
+* **Cluster Explorer** → Inspect suspicious clusters
+* **Candidate Explorer** → Analyze individual Telegram users
+* **Alerts Feed** → Latest high-risk messages
 
-Cluster Explorer → inspect message clusters
+### 4️⃣ Generate Alerts
 
-Candidate Explorer → analyze per-candidate risk profile
+```bash
+python alerts.py
+```
 
-Alerts Feed → live table of recent high-risk messages
-
-📈 Example Outputs
-
-📌 Cluster Network Graph (HTML FILE)
-
-
-📌 Risk Summary Report (PDF)
+---
 
 
-🛡️ Use Case
+## 🛡️ Applications
 
-Designed for SEBI regulators and investigators to:
+* Detect **fake advisors & pump-and-dump scams**
+* Monitor **unregistered financial services promotions**
+* Provide **real-time alerts** for SEBI investigators
 
-Monitor Telegram activity in near real-time
+---
 
-Detect high-risk advisories and fraudulent promotions
+## ✅ Future Work
 
-Verify advisors against SEBI registry
+* Real-time Telegram bot monitoring
+* NLP-based classification (BERT/FinBERT)
+* Extend coverage to **WhatsApp & Twitter/X**
 
-Build evidence-based case files (messages, clusters, alerts)
+---
