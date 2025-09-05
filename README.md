@@ -43,7 +43,7 @@ The goal: assist **SEBI investigators** in monitoring **financial scams, unverif
   Candidate ↔ Cluster ↔ Group visualizations for scam network mapping.
 
 - 📑 **Automated Reports**  
-  PDF/CSV exports and alerts feed for monitoring recent high-risk signals.
+  PDF/CSV exports and alerts feed for monitoring recent high-risk signals and continuously scans, detects only new high-risk cases, and actively notifies SEBI via Email/Slack in real-time.
 ---
 
 ## 🔄 Workflow
@@ -87,7 +87,9 @@ flowchart TD
 
 ### **Reporting**  
 - **ReportLab** – Automated PDF report generation (risk summaries, top clusters).  
-- **CSV Exports** – For SEBI auditors and investigators.  
+- **CSV Exports** – For SEBI auditors and investigators.
+- **Slack Alerts (via Webhook)**
+- **Email Alerts (via SMTP Gmail App Password)**
 
 ---
 ## ⚙️ Installation
