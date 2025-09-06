@@ -1,6 +1,8 @@
 # 📊 SEBI Telegram Risk Monitoring Dashboard
 This project is an **semi-automated risk monitoring system for Telegram investment groups**, designed to detect and analyze **illegal financial advice and scam promotions**. It processes raw Telegram messages, matches senders against official **SEBI IA/RA registries**, clusters repetitive scam patterns, and assigns **risk scores (low/medium/high)**. The system was built to **help SEBI and regulators quickly identify unregistered advisors, track high-risk activities, and generate evidence-ready reports** for investor protection.
 
+🚀 **[Live Demo](https://sebifrauddetection.streamlit.app/)**  
+
 ## 🌟 Overview
 This project analyzes **Telegram groups** to detect and monitor:
 - 🚨 **High-risk financial messages**
